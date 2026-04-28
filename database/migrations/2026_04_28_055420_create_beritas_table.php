@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('periodes', function (Blueprint $table) {
+        Schema::create('beritas', function (Blueprint $table) {
             $table->id();
-            $table->string('tahun_akademik', 9);// 2025/2026
-            $table->char('kode_smt', 1);// 1 gasal, 2 genap
+            $table->string('judul', 100);
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('periodes');
+        Schema::dropIfExists('beritas');
     }
 };
