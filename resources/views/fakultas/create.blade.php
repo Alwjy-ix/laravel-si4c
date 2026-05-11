@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +18,10 @@
             <h5>Form pengisian data fakultas</h5>
             <label for="nama" class="form-label">Nama fakultas</label>
             <input type="text" class="form-control" id="nama" placeholder="masukkan nama fakultas..">
+
             <label for="singkatan" class="form-label">Singkatan fakultas</label>
             <input type="text" class="form-control" id="singkatan" placeholder="masukkan singkatan fakultas..">
+            
             <label for="dekan" class="form-label">Nama dekan fakultas</label>
             <input type="text" class="form-control" id="dekan" placeholder="masukkan nama dekan..">
             <button type="submit" class="btn btn-primary mt-3">Submit</button>

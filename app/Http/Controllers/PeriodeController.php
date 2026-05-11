@@ -13,9 +13,9 @@ class PeriodeController extends Controller
     public function index()
     {
         // akses model Periode
-        $result = Periode::all();// select * from periodes
+        $periodes = Periode::all();// select * from periodes
         // dd($result);
-        return view('periode.index', compact('result'));
+        return view('periode.index', compact('periodes'));
     }
 
     /**

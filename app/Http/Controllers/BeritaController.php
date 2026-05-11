@@ -13,8 +13,8 @@ class BeritaController extends Controller
     public function index()
     {
         //akases model berita
-        $result = Berita::all();
-        return view('berita.index', compact('result'));
+        $beritas = Berita::all();
+        return view('berita.index', compact('beritas'));
     }
 
     /**
