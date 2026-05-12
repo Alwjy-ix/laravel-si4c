@@ -350,11 +350,18 @@
                   <p>Fakultas</p>
                 </a>
               </li>
-
+              
               <li class="nav-item">
                 <a href="{{ url('prodi') }}" class="nav-link">
                   <i class="nav-icon bi bi-map"></i>
                   <p>Program Studi</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ url('periode') }}" class="nav-link">
+                  <i class="nav-icon bi bi-clock-history"></i>
+                  <p>Periode</p>
                 </a>
               </li>
 
