@@ -3,6 +3,7 @@
 @section('title', 'Program Studi')
 
 @section('content')
+<a href="{{ route('prodi.create') }}" class="btn btn-primary mb-3">Tambah Prodi</a>
 <table class="table table-bordered table-hover">
     <tr>
         <th>No</th>
