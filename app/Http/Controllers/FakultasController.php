@@ -60,9 +60,9 @@ class FakultasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($fakultas)
+    public function edit(Fakultas $fakultas)
     {
-        $fakultas = Fakultas::find($fakultas);//select * form fakultas 
+        //$fakultas = Fakultas::find($fakultas);//select * form fakultas 
         //dd($fakultas);
         return view ('fakultas.edit', compact('fakultas'));
     }
@@ -73,14 +73,23 @@ class FakultasController extends Controller
     public function update(Request $request, Fakultas $fakultas)
     {
         //
+        //dd($fakultas);
+        //validasi data
+        $input = $request->validate([
+            'nama' => 'required|unique:fakultas,nama,' .$fakultas->id, //validasi namafakultas harus unik di tabel fakultas kecuali data yang sedang diupdate
+            'singkatan' => 'required',
+            'dekan' => 'required',
+        ]);
+        $fakultas->update($input);
+        return redirect()->route('fakultas.index')->with('success', 'Data Fakultas berhasil diupdate');//redirect ke halaman index fakultas
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($fakultas)
+    public function destroy(Fakultas $fakultas)
     {
-        $fakultas = Fakultas::find($fakultas);
+        //$fakultas = Fakultas::find($fakultas);
         //dd($fakultas);
         $fakultas->delete();//delete form fakultas where id = $fakultas
 
