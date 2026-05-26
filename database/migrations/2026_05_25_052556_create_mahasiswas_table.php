@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
-            $table->string('npm', 11)->unique();
-            $table->string('nama', 50);
-            $table->foreignId('prodi_id')->constrained()->onDelete('restrict');
+            $table->string('npm',11)->unique();
+            $table->string('nama', 100);
+            $table->foreignId('prodi_id')->constrained('prodis')->onDelete('cascade');
             $table->string('foto', 100)->nullable();
             $table->timestamps();
         });

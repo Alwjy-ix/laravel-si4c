@@ -18,25 +18,24 @@
             <th>Aksi</th>
         </tr>
 
-        @foreach ($mahasiswa as $key => $mhs)
+        @foreach ($mahasiswas as $key => $mhs)
             <tr>
-                <td>{{ $key + 1 }}</td>
                 <td>{{ $mhs->npm }}</td>
                 <td>{{ $mhs->nama }}</td>
-                <td>{{ $mhs->nama_prodi ?? '-' }}</td>
+                <td>{{ $mhs->prodi->nama_prodi ?? '-' }}</td>
                 <td>
                     @if ($mhs->foto)
-                        <img src="{{ asset('storage/' .$mhs->foto) }}" alt="Foto" width="50">
+                        <img src="{{ asset('storage/' . $mhs->foto) }}" alt="Foto" width="50">
                     @else
                         <span class="text-muted">Tidak ada foto</span>
                     @endif
                 </td>
                 <td>
-                    <form method="POST" action="{{ route('prodi.destroy', $prodi->id) }}">
+                    <form method="POST" action="{{ route('mahasiswa.destroy', $mhs->id) }}">
                         @csrf
                         <input name="_method" type="hidden" value="DELETE">
                         <button type="submit" class="btn btn-xs btn-danger btn-rounded show_confirm" data-toggle="tooltip"
-                            title='Delete' data-nama='{{ $prodi->nama }}'>Hapus</button>
+                            title='Delete' data-nama='{{ $mhs->nama }}'>Hapus</button>
                     </form>
                 </td>
             </tr>
