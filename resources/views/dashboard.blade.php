@@ -139,6 +139,9 @@
             title: {
                 text: 'Jumlah Mahasiswa per Tahun Angkatan'
             },
+            subtitle: {
+                text: 'Source: Aplikasi SIMPONI'
+            },
             xAxis: {
                 categories: [
                     @foreach ($jumlahMahasiswaPerTahun as $data)
