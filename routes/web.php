@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FakultasController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PeriodeController;
@@ -20,3 +21,5 @@ Route::resource('berita', BeritaController::class);
 Route::resource('prodi', ProdiController::class);
 
 Route::resource('mahasiswa',MahasiswaController::class)->parameters(['mahasiswa'=>'mahasiswa']);
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

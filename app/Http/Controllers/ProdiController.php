@@ -23,7 +23,7 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        $fakultas = Fakultas::all();// untuk dropdown fakultas
+        $fakultas = Fakultas::all(); // untuk dropdown fakultas
         return view('prodi.create', compact('fakultas'));
     }
 
@@ -58,7 +58,9 @@ class ProdiController extends Controller
      */
     public function edit(Prodi $prodi)
     {
-        //
+        $fakultas = Fakultas::all();
+
+        return view('prodi.edit', compact('prodi', 'fakultas'));
     }
 
     /**
@@ -66,7 +68,18 @@ class ProdiController extends Controller
      */
     public function update(Request $request, Prodi $prodi)
     {
-        //
+        $input = $request->validate([
+            'nama_prodi' => 'required|unique:prodis,nama_prodi,' . $prodi->id,
+            'singkatan' => 'required|max:2',
+            'kaprodi' => 'required',
+            'fakultas_id' => 'required'
+        ]);
+
+        $prodi->update($input);
+
+        return redirect()
+            ->route('prodi.index')
+            ->with('success', 'Data Program Studi berhasil diubah');
     }
 
     /**
@@ -76,8 +89,8 @@ class ProdiController extends Controller
     {
         $prodi = Prodi::find($prodi);
         //dd($fakultas);
-        $prodi->delete();//delete form fakultas where id = $fakultas
+        $prodi->delete(); //delete form fakultas where id = $fakultas
 
-        return redirect()->route('prodi.index')->with('success', 'Data Fakultas berhasil dihapus');//redirect ke halaman index fakultas
+        return redirect()->route('prodi.index')->with('success', 'Data Fakultas berhasil dihapus'); //redirect ke halaman index fakultas
     }
 }

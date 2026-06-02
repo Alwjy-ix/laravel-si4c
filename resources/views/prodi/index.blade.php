@@ -27,11 +27,15 @@
                 <td>{{ $prodi->kaprodi }}</td>
                 <td>{{ $prodi->fakultas->nama ?? '-' }}</td>
                 <td>
-                    <form method="POST" action="{{ route('prodi.destroy', $prodi->id) }}">
+                    <a href="{{ route('prodi.edit', $prodi->id) }}" class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+                    <form method="POST" action="{{ route('prodi.destroy', $prodi->id) }}" style="display:inline">
                         @csrf
-                        <input name="_method" type="hidden" value="DELETE">
-                        <button type="submit" class="btn btn-xs btn-danger btn-rounded show_confirm" data-toggle="tooltip"
-                            title='Delete' data-nama='{{ $prodi->nama }}'>Hapus</button>
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            Hapus
+                        </button>
                     </form>
                 </td>
             </tr>
