@@ -29,7 +29,7 @@ class DashboardController extends Controller
             ORDER BY tahun"
         );
 
-        return view('dashboard', compact(
+        return view('dashboard-adminlte', compact(
             'jumlahMahasiswa',
             'jumlahMahasiswaPerTahun'
         ));
